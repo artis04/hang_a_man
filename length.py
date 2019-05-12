@@ -9,4 +9,4 @@ def length_of_word():
             correct = True
 
 
-    return length
+    return int(length)

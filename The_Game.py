@@ -34,6 +34,8 @@ while finding_letter:
                 choise = input('Does your word have any ' + letter + ' in it? Y or N:')
                 choise = choise.lower()
                 if choise == 'y':
+                    where = input('in which place is letter ' + letter + '?')
+
                     #in whitch place is it?
                     pass
                 elif choise == 'n':

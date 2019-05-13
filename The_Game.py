@@ -1,6 +1,7 @@
 import length
 maywords1 = []
 maywords = []
+ban = []
 
 ans_word_len = length.length_of_word()
 
@@ -15,7 +16,6 @@ maywords = maywords1
 maywords1 = ''
 
 #now i have only length of word
-ban = []
 
 print(maywords)
 
@@ -28,9 +28,16 @@ while finding_letter:
             letter = i[j]
 
             if letter in ban:
+                pass
                 #then letter is already told
             else:
-                #then letter is free to use
+                choise = input('Does your word have any ' + letter + ' in it? Y or N:')
+                choise = choise.lower()
+                if choise == 'y':
+                    #in whitch place is it?
+                    pass
+                elif choise == 'n':
+                    ban.append(letter)
 
 
             j += 1

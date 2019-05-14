@@ -55,16 +55,18 @@ while finding_letter:
                 #then letter is already told
             else:
                 repeat = True
+                choise = input('Does your word have any ' + letter + ' in it? Y or N:')
                 while repeat:
-                    choise = input('Does your word have any ' + letter + ' in it? Y or N:')
+
                     choise = choise.lower()
                     if choise == 'y':
-                        repeat = False
+                        #repeat = False
                         where = input('in which place is letter ' + letter + '?')
 
                         #class right_letter:
-
-                        if int(where) == 1 and w1 == '_':
+                        if where.lower() == 'exit':
+                            repeat = False
+                        elif int(where) == 1 and w1 == '_':
                             w1 = letter
                         elif int(where) == 2 and w2 == '_':
                             w2 = letter
@@ -82,8 +84,21 @@ while finding_letter:
                             w8 = letter
                         elif int(where) == 9 and w9 == '_':
                             w9 = letter
+                        else:
+                            print('wrong location (you can type EXIT to exit this question')
+
+
                         print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9)
+                        more = input('does this word have more ' + letter + '?')
+                        more = more.lower()
+                        if more == 'y':
+                            pass
+                        elif more == 'n':
+                            repeat = False
+                        else:
+                            print('hey! you gave me incorrect answer!!')
                         #if word have that letter
+                        ban.append(letter)
 
                     elif choise == 'n':
                         repeat = False

@@ -2,6 +2,7 @@ import length
 maywords1 = []
 maywords = []
 ban = []
+used = []
 
 ans_word_len = length.length_of_word()
 
@@ -40,7 +41,6 @@ if ans_word_len >= 8:
 if ans_word_len == 9:
     w9 = '_'
 
-print(maywords)
 
 finding_letter = True
 
@@ -49,8 +49,7 @@ while finding_letter:
         j = 0
         while j < ans_word_len:
             letter = i[j]
-            print(maywords)
-            if letter in ban:
+            if letter in ban or letter in used:
                 j += 1
                 #then letter is already told
             else:
@@ -104,8 +103,8 @@ while finding_letter:
                         maywords = maywords1
                         maywords1 = []
 
-                        print(maywords)
                         print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9)
+
                         more = input('does this word have more ' + letter + '?')
                         more = more.lower()
                         if more == 'y':
@@ -115,7 +114,7 @@ while finding_letter:
                         else:
                             print('hey! you gave me incorrect answer!!')
                         #if word have that letter
-                        ban.append(letter)
+                        used.append(letter)
 
                     elif choise == 'n':
                         repeat = False
@@ -134,10 +133,10 @@ while finding_letter:
                             maywords.remove(s)
                         maywords_ban = []
                         #maybe i could brake and use while
-                        print(maywords)
+
                     else:
                         repeat = True
                         print("sorry you didn't answer correctly")
 
                 break
-
+        break

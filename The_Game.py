@@ -11,7 +11,7 @@ with open('words.txt', 'r') as f:
 for i in maywords:
     if len(i) == ans_word_len:
         g = i.lower()
-        list.append(maywords1, g)
+        maywords1.append(g)
 maywords = maywords1
 maywords1 = ''
 
@@ -49,9 +49,9 @@ while finding_letter:
         j = 0
         while j < ans_word_len:
             letter = i[j]
-
+            print(maywords)
             if letter in ban:
-                pass
+                j += 1
                 #then letter is already told
             else:
                 repeat = True
@@ -68,26 +68,43 @@ while finding_letter:
                             repeat = False
                         elif int(where) == 1 and w1 == '_':
                             w1 = letter
+                            place = 1
                         elif int(where) == 2 and w2 == '_':
                             w2 = letter
+                            place = 2
                         elif int(where) == 3 and w3 == '_':
                             w3 = letter
+                            place = 3
                         elif int(where) == 4 and w4 == '_':
                             w4 = letter
+                            place = 4
                         elif int(where) == 5 and w5 == '_':
                             w5 = letter
+                            place = 5
                         elif int(where) == 6 and w6 == '_':
                             w6 = letter
+                            place = 6
                         elif int(where) == 7 and w7 == '_':
                             w7 = letter
+                            place = 7
                         elif int(where) == 8 and w8 == '_':
                             w8 = letter
+                            place = 8
                         elif int(where) == 9 and w9 == '_':
                             w9 = letter
+                            place = 9
                         else:
                             print('wrong location (you can type EXIT to exit this question')
 
+                        maywords1 = []
+                        for a in maywords:
+                            if a[place - 1] == letter:
+                                maywords1.append(a)
+                        maywords = []
+                        maywords = maywords1
+                        maywords1 = []
 
+                        print(maywords)
                         print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9)
                         more = input('does this word have more ' + letter + '?')
                         more = more.lower()
@@ -103,9 +120,24 @@ while finding_letter:
                     elif choise == 'n':
                         repeat = False
                         ban.append(letter)
+                        maywords_ban = []
+                        for s in maywords:
+                            b = 0
+                            while b < ans_word_len:
+                                if s[b] in ban:
+                                    maywords_ban.append(s)
+                                    break
+                                b += 1
+                        for s in maywords_ban:
+                            if maywords[0] == 'dog':
+                                pass
+                            maywords.remove(s)
+                        maywords_ban = []
+                        #maybe i could brake and use while
+                        print(maywords)
                     else:
                         repeat = True
                         print("sorry you didn't answer correctly")
 
-            j += 1
+                break
 

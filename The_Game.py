@@ -31,16 +31,21 @@ while finding_letter:
                 pass
                 #then letter is already told
             else:
-                choise = input('Does your word have any ' + letter + ' in it? Y or N:')
-                choise = choise.lower()
-                if choise == 'y':
-                    where = input('in which place is letter ' + letter + '?')
+                repeat = True
+                while repeat:
+                    choise = input('Does your word have any ' + letter + ' in it? Y or N:')
+                    choise = choise.lower()
+                    if choise == 'y':
+                        repeat = False
+                        where = input('in which place is letter ' + letter + '?')
+                        #if word have that letter
 
-                    #in whitch place is it?
-                    pass
-                elif choise == 'n':
-                    ban.append(letter)
-
+                    elif choise == 'n':
+                        repeat = False
+                        ban.append(letter)
+                    else:
+                        repeat = True
+                        print("sorry you didn't answer correctly")
 
             j += 1
 

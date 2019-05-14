@@ -159,6 +159,6 @@ if goal.lower() == 'y':
     print('Thanks for playing')
 elif goal.lower() == 'n':
     print('WoW you beat me.')
-    input('can you give me your word? :')
+    #input('can you give me your word? :')
 else:
-    print('error')
+    print('game has ended')

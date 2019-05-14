@@ -3,6 +3,7 @@ maywords1 = []
 maywords = []
 ban = []
 used = []
+end = False
 
 ans_word_len = length.length_of_word()
 
@@ -41,6 +42,7 @@ if ans_word_len >= 8:
 if ans_word_len == 9:
     w9 = '_'
 
+print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9)
 
 finding_letter = True
 
@@ -105,6 +107,13 @@ while finding_letter:
 
                         print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9)
 
+                        if len(maywords) == 1:
+                            goal = input('Is your word '+ maywords[0] + ' ?')
+                            end = True
+
+                        if end:
+                            break
+
                         more = input('does this word have more ' + letter + '?')
                         more = more.lower()
                         if more == 'y':
@@ -138,5 +147,18 @@ while finding_letter:
                         repeat = True
                         print("sorry you didn't answer correctly")
 
+                    if end:
+                        break
                 break
         break
+
+    if end:
+        break
+
+if goal.lower() == 'y':
+    print('Thanks for playing')
+elif goal.lower() == 'n':
+    print('WoW you beat me.')
+    input('can you give me your word? :')
+else:
+    print('error')

@@ -27,6 +27,7 @@ w6 = ''
 w7 = ''
 w8 = ''
 w9 = ''
+w10 = ''
 
 #class gettingW:
 if ans_word_len >= 4:
@@ -39,10 +40,12 @@ if ans_word_len >= 7:
     w7 = '_'
 if ans_word_len >= 8:
     w8 = '_'
-if ans_word_len == 9:
+if ans_word_len >= 9:
     w9 = '_'
+if ans_word_len == 10:
+    w10 = '_'
 
-print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9)
+print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9 + ' ' + w10)
 
 finding_letter = True
 
@@ -61,10 +64,8 @@ while finding_letter:
 
                     choise = choise.lower()
                     if choise == 'y':
-                        #repeat = False
                         where = input('in which place is letter ' + letter + '?')
 
-                        #class right_letter:
                         if where.lower() == 'exit':
                             repeat = False
                         elif int(where) == 1 and w1 == '_':
@@ -94,6 +95,9 @@ while finding_letter:
                         elif int(where) == 9 and w9 == '_':
                             w9 = letter
                             place = 9
+                        elif int(where) == 10 and w10 == '_':
+                            w10 = letter
+                            place = 10
                         else:
                             print('wrong location (you can type EXIT to exit this question')
 
@@ -105,7 +109,7 @@ while finding_letter:
                         maywords = maywords1
                         maywords1 = []
 
-                        print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9)
+                        print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9 + ' ' + w10)
 
                         if len(maywords) == 1:
                             goal = input('Is your word '+ maywords[0] + ' ?')
@@ -141,12 +145,10 @@ while finding_letter:
                                 pass
                             maywords.remove(s)
                         maywords_ban = []
-                        #maybe i could brake and use while
-
+                        print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9 + ' ' + w10)
                     else:
                         repeat = True
                         print("sorry you didn't answer correctly")
-
                     if end:
                         break
                 break

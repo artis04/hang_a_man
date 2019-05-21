@@ -1,4 +1,3 @@
-import length
 repeat_goal = True
 
 while repeat_goal:
@@ -7,8 +6,18 @@ while repeat_goal:
     ban = []
     used = []
     end = False
+#not gut... if there is only one a letter, it will save words with more a letters
 
-    ans_word_len = length.length_of_word()
+    correct = True
+    while correct:
+        length = input('how long is your word? form 3 to 14:')
+
+        if int(length) < 3 or int(length) > 14:
+            print('sorry you entered worng number ' + length + 'is not between 3 and 14')
+        else:
+            ans_word_len = int(length)
+            correct = False
+
 
     with open('words.txt', 'r') as f:
         maywords = [line.strip() for line in f]

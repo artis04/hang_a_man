@@ -112,6 +112,8 @@ while finding_letter:
                         print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9 + ' ' + w10)
 
                         if len(maywords) == 1:
+                            print('##############################')
+                            print('##############################')
                             goal = input('Is your word '+ maywords[0] + ' ?')
                             end = True
 

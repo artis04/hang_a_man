@@ -205,6 +205,11 @@ while repeat_goal:
             repeat_goal = True
     elif goal.lower() == 'n':
         print('WoW you beat me.')
+        print('what was your word?')
+        new_word = input(':')
+        with open('words.txt', 'a') as words:
+            words.write('\n')
+            words.write(new_word)
         #input('can you give me your word? :')
     else:
         print('game has ended')

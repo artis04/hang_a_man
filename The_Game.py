@@ -31,6 +31,10 @@ while repeat_goal:
     w8 = ''
     w9 = ''
     w10 = ''
+    w11 = ''
+    w12 = ''
+    w13 = ''
+    w14 = ''
 
     #class gettingW:
     if ans_word_len >= 4:
@@ -45,10 +49,18 @@ while repeat_goal:
         w8 = '_'
     if ans_word_len >= 9:
         w9 = '_'
-    if ans_word_len == 10:
+    if ans_word_len >= 10:
         w10 = '_'
+    if ans_word_len >= 11:
+        w11 = '_'
+    if ans_word_len >= 12:
+        w12 = '_'
+    if ans_word_len >= 13:
+        w13 = '_'
+    if ans_word_len == 14:
+        w14 = '_'
 
-    print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9 + ' ' + w10)
+    print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9 + ' ' + w10 + ' ' + w11 + ' ' + w12 + ' ' + w13 + ' ' + w14)
 
     finding_letter = True
 
@@ -62,6 +74,7 @@ while repeat_goal:
                     #then letter is already told
                 else:
                     repeat = True
+                    print(maywords)
                     choise = input('Does your word have any ' + letter + ' in it? Y or N:')
                     while repeat:
 
@@ -101,6 +114,18 @@ while repeat_goal:
                             elif int(where) == 10 and w10 == '_':
                                 w10 = letter
                                 place = 10
+                            elif int(where) == 11 and w11 == '_':
+                                w11 = letter
+                                place = 11
+                            elif int(where) == 12 and w12 == '_':
+                                w12 = letter
+                                place = w12
+                            elif int(where) == 13 and w13 == '_':
+                                w13 = letter
+                                place = w13
+                            elif int(where) == 14 and w14 == '_':
+                                w14 = letter
+                                place = w14
                             else:
                                 print('wrong location (you can type EXIT to exit this question')
 
@@ -112,7 +137,8 @@ while repeat_goal:
                             maywords = maywords1
                             maywords1 = []
 
-                            print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9 + ' ' + w10)
+                            print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9 + ' ' + w10 + ' ' + w11 + ' ' + w12 + ' ' + w13 + ' ' + w14)
+
 
                             if len(maywords) == 1:
                                 print('##############################')
@@ -150,7 +176,7 @@ while repeat_goal:
                                     pass
                                 maywords.remove(s)
                             maywords_ban = []
-                            print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9 + ' ' + w10)
+                            print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9 + ' ' + w10 + ' ' + w11 + ' ' + w12 + ' ' + w13 + ' ' + w14)
                         else:
                             repeat = True
                             print("sorry you didn't answer correctly")

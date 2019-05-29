@@ -1,3 +1,4 @@
+import collections
 repeat_goal = True
 
 while repeat_goal:
@@ -72,12 +73,21 @@ while repeat_goal:
     print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9 + ' ' + w10 + ' ' + w11 + ' ' + w12 + ' ' + w13 + ' ' + w14)
 
     finding_letter = True
-
+    fax = []
     while finding_letter:
         for i in maywords:
+            r = 0
             j = 0
-            while j < ans_word_len:
-                letter = i[j]
+            while j < len(i):
+                while r < len(i):
+                    a = i[r]
+                    fax.append(a)
+                    r += 1
+                counter = collections.Counter(fax)
+                words = counter.most_common()
+                nex = words[0]
+                letter = nex[0]
+                j = 0
                 if letter in ban or letter in used:
                     j += 1
                     #then letter is already told
@@ -89,7 +99,7 @@ while repeat_goal:
 
                         choise = choise.lower()
                         if choise == 'y':
-                            where = input('in which place is letter ' + letter + '?')
+                            where = input('in which place is letter ' + letter + '? (you can use exit)')
 
                             if where.lower() == 'exit':
                                 repeat = False
@@ -191,8 +201,12 @@ while repeat_goal:
                             print("sorry you didn't answer correctly")
                         if end:
                             break
+                    if end:
+                        break
+                if end:
                     break
-            break
+            if end:
+                break
 
         if end:
             break

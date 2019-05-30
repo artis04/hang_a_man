@@ -134,7 +134,6 @@ while repeat_goal:
                     ged_repeat = False
             if ban != []:
                 ged_repeat = False
-        #nex = words[0]
         letter = nex[0]
         j = 0
 

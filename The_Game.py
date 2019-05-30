@@ -99,17 +99,18 @@ while repeat_goal:
         return letter
 
     finding_letter = True
-    fax = []
-    neccessery = 0
     while finding_letter:
+        fax = []
+        words = []
+        neccessery = 0
         for i in maywords:
             j = 0
             while j < len(i):
                 a = i[j]
                 fax.append(a)
                 j += 1
-            counter = collections.Counter(fax)
-            words = counter.most_common()
+        counter = collections.Counter(fax)
+        words = counter.most_common()
         if ban != [] or used != []:
             ged_repeat = True
         else:

@@ -133,8 +133,6 @@ while repeat_goal:
                     break
                 else:
                     ged_repeat = False
-            if ban != []:
-                ged_repeat = False
         letter = nex[0]
         j = 0
 
@@ -227,9 +225,10 @@ while repeat_goal:
                         pass
                     elif more == 'n':
                         repeat = False
+                        #here i should make system that removes word which have that letters but in wrong place [[[HARD
+
                     else:
                         print('hey! you gave me incorrect answer!!')
-                    #if word have that letter
                     used.append(letter)
 
                 elif choise == 'n':
@@ -279,6 +278,5 @@ while repeat_goal:
         with open('words.txt', 'a') as words:
             words.write('\n')
             words.write(new_word)
-        #input('can you give me your word? :')
     else:
-        print('game has ended')
+        print('game has ended with error')

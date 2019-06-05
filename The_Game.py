@@ -7,18 +7,21 @@ while repeat_goal:
     ban = []
     used = []
     end = False
-#not gut... if there is only one a letter, it will save words with more a letters
+    ans_word_len = 0
+    nex = ''
+    place = ''
+    goal = ''
+# not gut... if there is only one a letter, it will save words with more a letters
 
     correct = True
     while correct:
         length = input('how long is your word? form 3 to 14:')
 
-        if int(length) < 3 or int(length) > 14:
+        if int(length) < 3 or int(length) > 31:
             print('sorry you entered worng number ' + length + 'is not between 3 and 14')
         else:
             ans_word_len = int(length)
             correct = False
-
 
     with open('words.txt', 'r') as f:
         maywords = [line.strip() for line in f]
@@ -30,7 +33,7 @@ while repeat_goal:
     maywords = maywords1
     maywords1 = ''
 
-    #now i have only length of word
+    # now i have only length of word
     w1 = '_'
     w2 = '_'
     w3 = '_'
@@ -46,7 +49,7 @@ while repeat_goal:
     w13 = ''
     w14 = ''
 
-    #class gettingW:
+    # class gettingW:
     if ans_word_len >= 4:
         w4 = '_'
     if ans_word_len >= 5:
@@ -70,33 +73,7 @@ while repeat_goal:
     if ans_word_len == 14:
         w14 = '_'
 
-    print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9 + ' ' + w10 + ' ' + w11 + ' ' + w12 + ' ' + w13 + ' ' + w14)
-
-    def find_letter(ban):
-        neccessery = 0
-        run = True
-        while run:
-            for i in maywords:
-                j = 0
-                while j < len(i):
-                    a = i[j]
-                    fax.append(a)
-                    j += 1
-                counter = collections.Counter(fax)
-                words = counter.most_common()
-                if ban == []:
-                    run = False
-                for q in ban:
-                    nex = words[neccessery]
-                    if nex[0] == q:
-                        neccessery += 1
-                    else:
-                        run = False
-                nex = words[0]
-                letter = nex[0]
-                j = 0
-
-        return letter
+    print(w1+' '+w2+' '+w3+' '+w4+' '+w5+' '+w6+' '+w7+' '+w8+' '+w9+' '+w10+' '+w11+' '+w12+' '+w13+' '+w14)
 
     finding_letter = True
     while finding_letter:
@@ -136,21 +113,17 @@ while repeat_goal:
         letter = nex[0]
         j = 0
 
-
         if letter in ban or letter in used:
             pass
-            #then letter is already told
+            # then letter is already told
         else:
             repeat = True
             print(maywords)
             choise = input('Does your word have any ' + letter + ' in it? Y or N:')
             while repeat:
-
                 choise = choise.lower()
                 if choise == 'y':
                     where = input('in which place is letter ' + letter + '? (you can use exit)')
-
-                    #ban.append(letter)
 
                     if where.lower() == 'exit':
                         repeat = False
@@ -203,17 +176,16 @@ while repeat_goal:
                     for a in maywords:
                         if a[place - 1] == letter:
                             maywords1.append(a)
-                    maywords = []
                     maywords = maywords1
                     maywords1 = []
 
-                    print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9 + ' ' + w10 + ' ' + w11 + ' ' + w12 + ' ' + w13 + ' ' + w14)
-
+                    print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9
+                          + ' ' + w10 + ' ' + w11 + ' ' + w12 + ' ' + w13 + ' ' + w14)
 
                     if len(maywords) == 1:
                         print('##############################')
                         print('##############################')
-                        goal = input('Is your word '+ maywords[0] + ' ?')
+                        goal = input('Is your word ' + maywords[0] + ' ?')
                         end = True
 
                     if end:
@@ -225,7 +197,7 @@ while repeat_goal:
                         pass
                     elif more == 'n':
                         repeat = False
-                        #here i should make system that removes word which have that letters but in wrong place [[[HARD
+                        # here i should make system that removes word which have that letters but in wrong place [[[HARD
 
                     else:
                         print('hey! you gave me incorrect answer!!')
@@ -247,12 +219,13 @@ while repeat_goal:
                             pass
                         maywords.remove(s)
                     maywords_ban = []
-                    print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9 + ' ' + w10 + ' ' + w11 + ' ' + w12 + ' ' + w13 + ' ' + w14)
+                    print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9
+                          + ' ' + w10 + ' ' + w11 + ' ' + w12 + ' ' + w13 + ' ' + w14)
 
                     if len(maywords) == 1:
                         print('##############################')
                         print('##############################')
-                        goal = input('Is your word '+ maywords[0] + ' ?')
+                        goal = input('Is your word ' + maywords[0] + ' ?')
                         end = True
 
                 else:

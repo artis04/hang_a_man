@@ -1,6 +1,19 @@
 import collections
-repeat_goal = True
+repeat_goal = False
+game_two = False
 
+game = input('''
+    Do you want to:
+1. A.I. guesses your guessed word
+2. you guess A.I. guessed word
+      ''')
+
+if game == '1':
+    repeat_goal = True
+elif game == '2':
+    game_two = True
+else:
+    exit()
 while repeat_goal:
     may_words1 = []
     may_words = []
@@ -227,6 +240,7 @@ while repeat_goal:
                 elif choice == 'n':
 
                     mistakes += 1
+
                     if mistakes == 1:
                         print('''
        /¯¯¯¯¯¯|
@@ -321,6 +335,7 @@ while repeat_goal:
                         |_____________
                         
                         ''')
+
                     elif mistakes == 7:
                         print('''
                          _______
@@ -335,6 +350,7 @@ while repeat_goal:
                         |_____________
                          
                         ''')
+
                     elif mistakes == 8:
                         print('''
                          
@@ -350,6 +366,7 @@ while repeat_goal:
                         |_____________
                         
                         ''')
+
                     elif mistakes == 9:
                         print('''               
                          _______
@@ -364,6 +381,7 @@ while repeat_goal:
                         |_____________     
 
                         ''')
+
                     elif mistakes == 10:
                         print('''
                         
@@ -435,3 +453,6 @@ while repeat_goal:
         print("that was a great play, but AI couldn't guess that word")
     else:
         print('game has ended with error')
+
+while game_two:
+    pass

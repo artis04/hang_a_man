@@ -11,7 +11,29 @@ while repeat_goal:
     nex = ''
     place = ''
     goal = ''
+    afterENC = []
+    repeat = True
+    file = ''
+
 # not gut... if there is only one a letter, it will save words with more a letters
+    while repeat:
+        carpet = input('do you want to play with all or most used words? :')
+        if carpet.lower() == 'all' or carpet.lower() == 'all words':
+            file = 'words.txt'
+            repeat = False
+        elif carpet.lower() == 'most' or carpet.lower() == 'most used' or carpet.lower() == 'most words':
+            file = 'most.txt'
+            repeat = False
+        else:
+            print(
+                '''
+                wrong answer
+                you can answer by
+                all / all words
+                most / most used / most words           
+            '''
+            )
+            repeat = True
 
     correct = True
     while correct:
@@ -23,7 +45,7 @@ while repeat_goal:
             ans_word_len = int(length)
             correct = False
 
-    with open('words.txt', 'r') as f:
+    with open(file, 'r') as f:
         maywords = [line.strip() for line in f]
 
     for i in maywords:
@@ -198,7 +220,40 @@ while repeat_goal:
                     elif more == 'n':
                         repeat = False
                         # here i should make system that removes word which have that letters but in wrong place [[[HARD
+                        '''
+                        if w1 == letter:
+                            afterENC.append('one')
+                        if w2 == letter:
+                            afterENC.append('two')
+                        if w3 == letter:
+                            afterENC.append('three')
+                        if w4 == letter:
+                            afterENC.append('four')
+                        if w5 == letter:
+                            afterENC.append('five')
+                        if w6 == letter:
+                            afterENC.append('six')
+                        if w7 == letter:
+                            afterENC.append('seven')
+                        if w8 == letter:
+                            afterENC.append('eight')
+                        if w9 == letter:
+                            afterENC.append('nine')
+                        if w10 == letter:
+                            afterENC.append('ten')
+                        if w11 == letter:
+                            afterENC.append('eleven')
+                        if w12 == letter:
+                            afterENC.append('twelve')
+                        if w13 == letter:
+                            afterENC.append('thirteen')
+                        if w14 == letter:
+                            afterENC.append('fourteen')
 
+                        for numberical in maywords:
+                            johpa = 0
+                            if numberical[johpa] == letter and afterENC
+                            '''
                     else:
                         print('hey! you gave me incorrect answer!!')
                     used.append(letter)

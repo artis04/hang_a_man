@@ -40,7 +40,7 @@ while repeat_goal:
         length = input('how long is your word? form 3 to 14:')
 
         if int(length) < 3 or int(length) > 31:
-            print('sorry you entered worng number ' + length + 'is not between 3 and 14')
+            print('sorry you entered wrong number ' + length + 'is not between 3 and 14')
         else:
             ans_word_len = int(length)
             correct = False
@@ -101,7 +101,7 @@ while repeat_goal:
     while finding_letter:
         fax = []
         words = []
-        neccessery = 0
+        necessary = 0
         for i in may_words:
             j = 0
             while j < len(i):
@@ -116,18 +116,18 @@ while repeat_goal:
             ged_repeat = False
             nex = words[0]
         while ged_repeat:
-            nex = words[neccessery]
+            nex = words[necessary]
             for q in ban:
 
                 if nex[0] == q:
-                    neccessery += 1
+                    necessary += 1
                     ged_repeat = True
                 else:
                     ged_repeat = False
 
             for q in used:
                 if nex[0] == q:
-                    neccessery += 1
+                    necessary += 1
                     ged_repeat = True
                     break
                 else:

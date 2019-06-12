@@ -2,19 +2,19 @@ import collections
 repeat_goal = True
 
 while repeat_goal:
-    maywords1 = []
-    maywords = []
+    may_words1 = []
+    may_words = []
     ban = []
     used = []
     end = False
     ans_word_len = 0
+    mistakes = 0
     nex = ''
     place = ''
     goal = ''
-    afterENC = []
     repeat = True
     file = ''
-
+    lost = False
 # not gut... if there is only one a letter, it will save words with more a letters
     while repeat:
         carpet = input('do you want to play with all or most used words? :')
@@ -46,14 +46,14 @@ while repeat_goal:
             correct = False
 
     with open(file, 'r') as f:
-        maywords = [line.strip() for line in f]
+        may_words = [line.strip() for line in f]
 
-    for i in maywords:
+    for i in may_words:
         if len(i) == ans_word_len:
             g = i.lower()
-            maywords1.append(g)
-    maywords = maywords1
-    maywords1 = ''
+            may_words1.append(g)
+    may_words = may_words1
+    may_words1 = ''
 
     # now i have only length of word
     w1 = '_'
@@ -102,7 +102,7 @@ while repeat_goal:
         fax = []
         words = []
         neccessery = 0
-        for i in maywords:
+        for i in may_words:
             j = 0
             while j < len(i):
                 a = i[j]
@@ -140,11 +140,11 @@ while repeat_goal:
             # then letter is already told
         else:
             repeat = True
-            print(maywords)
-            choise = input('Does your word have any ' + letter + ' in it? Y or N:')
+            # print(may_words)
+            choice = input('Does your word have any ' + letter + ' in it? Y or N:')
             while repeat:
-                choise = choise.lower()
-                if choise == 'y':
+                choice = choice.lower()
+                if choice == 'y':
                     where = input('in which place is letter ' + letter + '? (you can use exit)')
 
                     if where.lower() == 'exit':
@@ -194,20 +194,20 @@ while repeat_goal:
                     else:
                         print('wrong location (you can type EXIT to exit this question')
 
-                    maywords1 = []
-                    for a in maywords:
+                    may_words1 = []
+                    for a in may_words:
                         if a[place - 1] == letter:
-                            maywords1.append(a)
-                    maywords = maywords1
-                    maywords1 = []
+                            may_words1.append(a)
+                    may_words = may_words1
+                    may_words1 = []
 
                     print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9
                           + ' ' + w10 + ' ' + w11 + ' ' + w12 + ' ' + w13 + ' ' + w14)
 
-                    if len(maywords) == 1:
+                    if len(may_words) == 1:
                         print('##############################')
                         print('##############################')
-                        goal = input('Is your word ' + maywords[0] + ' ?')
+                        goal = input('Is your word ' + may_words[0] + ' ?')
                         end = True
 
                     if end:
@@ -220,72 +220,177 @@ while repeat_goal:
                     elif more == 'n':
                         repeat = False
                         # here i should make system that removes word which have that letters but in wrong place [[[HARD
-                        '''
-                        if w1 == letter:
-                            afterENC.append('one')
-                        if w2 == letter:
-                            afterENC.append('two')
-                        if w3 == letter:
-                            afterENC.append('three')
-                        if w4 == letter:
-                            afterENC.append('four')
-                        if w5 == letter:
-                            afterENC.append('five')
-                        if w6 == letter:
-                            afterENC.append('six')
-                        if w7 == letter:
-                            afterENC.append('seven')
-                        if w8 == letter:
-                            afterENC.append('eight')
-                        if w9 == letter:
-                            afterENC.append('nine')
-                        if w10 == letter:
-                            afterENC.append('ten')
-                        if w11 == letter:
-                            afterENC.append('eleven')
-                        if w12 == letter:
-                            afterENC.append('twelve')
-                        if w13 == letter:
-                            afterENC.append('thirteen')
-                        if w14 == letter:
-                            afterENC.append('fourteen')
-
-                        for numberical in maywords:
-                            johpa = 0
-                            if numberical[johpa] == letter and afterENC
-                            '''
                     else:
-                        print('hey! you gave me incorrect answer!!')
+                            print('hey! you gave me incorrect answer!!')
                     used.append(letter)
 
-                elif choise == 'n':
+                elif choice == 'n':
+
+                    mistakes += 1
+                    if mistakes == 1:
+                        print('''
+                        
+                        
+
+
+
+
+                        _____________
+                        ''')
+
+                    elif mistakes == 2:
+                        print('''
+                        
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |_____________
+                        ''')
+
+                    elif mistakes == 3:
+                        print('''
+                         _______
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |_____________
+                        ''')
+
+                    elif mistakes == 4:
+                        print('''
+                         _______
+                        |     |
+                        |     
+                        |   
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |_____________
+                        ''')
+
+                    elif mistakes == 5:
+                        print('''
+                         _______
+                        |     |
+                        |    /¯\ 
+                        |    \_/
+                        |
+                        |
+                        |
+                        |
+                        |
+                        |_____________
+                        ''')
+
+                    elif mistakes == 6:
+                        print('''
+                         _______
+                        |     |
+                        |    /¯\ 
+                        |    \_/
+                        |     |
+                        |     |
+                        |
+                        |
+                        |
+                        |_____________
+                        ''')
+                    elif mistakes == 7:
+                        print('''
+                         _______
+                        |     |
+                        |    /¯\ 
+                        |    \_/
+                        |     |
+                        |     |
+                        |    / 
+                        |   /  
+                        |
+                        |_____________
+                        ''')
+                    elif mistakes == 8:
+                        print('''
+                         _______
+                        |     |
+                        |    /¯\ 
+                        |    \_/
+                        |     |
+                        |     |
+                        |    / \ 
+                        |   /   \  
+                        |
+                        |_____________
+                        ''')
+                    elif mistakes == 9:
+                        print('''
+                         _______
+                        |     |
+                        |    /¯\ 
+                        |    \_/
+                        |    /|
+                        |   / |
+                        |    / \ 
+                        |   /   \  
+                        |
+                        |_____________
+                        ''')
+                    elif mistakes == 10:
+                        print('''
+                         _______
+                        |     |
+                        |    /¯\ 
+                        |    \_/
+                        |    /|\ 
+                        |   / | \ 
+                        |    / \ 
+                        |   /   \  
+                        |
+                        |_____________
+                        
+    GAME OVER THANKS FOR PLAYING AI WAS NOT SMART ENOUGH
+                        ''')
+                        lost = True
+                        end = True
+
                     repeat = False
                     ban.append(letter)
-                    maywords_ban = []
-                    for s in maywords:
+                    may_words_ban = []
+                    for s in may_words:
                         b = 0
                         while b < ans_word_len:
                             if s[b] in ban:
-                                maywords_ban.append(s)
+                                may_words_ban.append(s)
                                 break
                             b += 1
-                    for s in maywords_ban:
-                        if maywords[0] == 'dog':
+                    for s in may_words_ban:
+                        if may_words[0] == 'dog':
                             pass
-                        maywords.remove(s)
-                    maywords_ban = []
+                        may_words.remove(s)
+                    may_words_ban = []
                     print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9
                           + ' ' + w10 + ' ' + w11 + ' ' + w12 + ' ' + w13 + ' ' + w14)
 
-                    if len(maywords) == 1:
+                    if len(may_words) == 1:
                         print('##############################')
                         print('##############################')
-                        goal = input('Is your word ' + maywords[0] + ' ?')
+                        goal = input('Is your word ' + may_words[0] + ' ?')
                         end = True
 
                 else:
                     repeat = True
-                    print("sorry you didn't answer correctly")
+                    print("ERROR PLEASE REOPEN APPLICATION sorry you didn't answer correctly")
                 if end:
                     break
             if end:
@@ -306,5 +411,7 @@ while repeat_goal:
         with open('words.txt', 'a') as words:
             words.write('\n')
             words.write(new_word)
+    elif lost:
+        print("that was a great play, but AI couldn't guess that word")
     else:
         print('game has ended with error')

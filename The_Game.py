@@ -1,4 +1,5 @@
 import collections
+import random
 repeat_goal = False
 game_two = False
 
@@ -12,8 +13,7 @@ if game == '1':
     repeat_goal = True
 elif game == '2':
     game_two = True
-else:
-    exit()
+
 while repeat_goal:
     may_words1 = []
     may_words = []
@@ -455,4 +455,288 @@ while repeat_goal:
         print('game has ended with error')
 
 while game_two:
-    pass
+    j = 0
+    length = 0
+    w1 = '_'
+    w2 = '_'
+    w3 = '_'
+    w4 = ''
+    w5 = ''
+    w6 = ''
+    w7 = ''
+    w8 = ''
+    w9 = ''
+    mistakes = 0
+    move = True
+    word = ''
+    over = False
+    win = False
+    used = []
+
+    with open('most.txt', 'r') as f:
+        may_words = [line.strip() for line in f]
+
+    for i in may_words:
+        j += 1
+    not_what_is_acceptable = True
+    while not_what_is_acceptable:
+        list_nr = random.randint(0, j)
+
+        word = may_words[list_nr]
+        # print(word)
+
+        length = len(word)
+        if length >= 3 or length <= 9:
+            not_what_is_acceptable = False
+
+    print('My word is ' + str(length) + ' letters long')
+
+    if length >= 4:
+        w4 = '_'
+    if length >= 5:
+        w5 = '_'
+    if length >= 6:
+        w6 = '_'
+    if length >= 7:
+        w7 = '_'
+    if length >= 8:
+        w8 = '_'
+    if length == 9:
+        w9 = '_'
+
+    print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9)
+
+    while move:
+        letter = ''
+        while len(letter) != 1:
+            letter = input('is there any :')
+            if len(letter) != 1:
+                print('please make you guess with only one letter')
+            letter = letter.lower()
+            if letter in used:
+                print('sorry you guessed with this letter already')
+                letter = ''
+
+        if letter in word:
+            j = 0
+            for i in word:
+                if i == letter:
+                    if j == 0:
+                        w1 = letter
+                    elif j == 1:
+                        w2 = letter
+                    elif j == 2:
+                        w3 = letter
+                    elif j == 3:
+                        w4 = letter
+                    elif j == 4:
+                        w5 = letter
+                    elif j == 5:
+                        w6 = letter
+                    elif j == 6:
+                        w7 = letter
+                    elif j == 7:
+                        w8 = letter
+                    elif j == 8:
+                        w9 = letter
+                j += 1
+            if w1 != '_' and w2 != '_' and w3 != '_' and w4 != '_' and w5 != '_' \
+                    and w6 != '_' and w7 != '_' and w8 != '_' and w9 != '_':
+                print('''
+                CONGRATULATION YOU GUESSED MY GUESSED WORD :))) 
+                YOU WAS RIGHT, MY WORD WAS ''' + word.upper() + '''
+                ''')
+
+                win = True
+        else:
+
+            mistakes += 1
+
+            if mistakes == 1:
+                print('''
+                   /¯¯¯¯¯¯|
+                  /       |                  
+                 /  /¯|   |               
+                /  /  |   |
+               /__/   |   |
+                      |   |
+                      |   |
+                      |   |            
+                      |   |
+                      |___|
+                                    _____________
+
+                                    ''')
+
+            elif mistakes == 2:
+                print('''
+
+                  /¯¯¯¯¯¯\          |
+                 /  __    \         |
+                /__/  /   |         |
+                     /   /          |
+                    /   /           |
+                   /   /            |
+                  /   /             |
+                 /   |______        |
+                |___________|       |_____________
+
+                                    ''')
+
+            elif mistakes == 3:
+                print('''
+
+                                     _______   
+                 __________         |
+                /  _____   \        |
+                |_/     \  |        |
+                    ____/  |        |
+                  /        |        |   
+                  ¯¯¯¯¯¯|  |        |
+                        /  |        |
+                  /¯¯¯¯¯  /         |
+                  ¯¯¯¯¯¯¯¯          |_____________    
+
+                                    ''')
+
+            elif mistakes == 4:
+                print('''
+
+                                     ________            
+                    /¯¯¯|           |     |                  
+                   /    |           |             
+                  / /|  |           |              
+                 / / |  |           |           
+                / /__|  |____       |              
+               |     |  |    |      |                   
+                ¯¯¯¯¯|¯¯|¯¯¯¯       |                  
+                     |  |           |                 
+                     ¯¯¯            |_____________                                   
+
+                                    ''')
+
+            elif mistakes == 5:
+                print('''
+
+                                     _______
+                |¯¯¯¯¯¯¯¯¯¯|        |     |                 
+                |  |¯¯¯¯¯¯¯         |    /¯\ 
+                |  |/¯¯\            |    \_/        
+                |       \           |            
+                |   /\   \          |          
+                    \/   |          |          
+                \       /           |       
+                 ¯¯¯¯¯¯¯            | 
+                                    |_____________
+
+                                    ''')
+
+            elif mistakes == 6:
+                print('''
+
+                                     _______
+                    /¯¯¯¯|          |     |                  
+                   / /¯¯¯           |    /¯\            
+                  / /               |    \_/             
+                 / /                |     |             
+                |  ¯¯¯¯¯\           |     |               
+                |   /\   \          |           
+                \   \/   /          |         
+                 \______/           |                 
+                                    |_____________
+
+                                    ''')
+
+            elif mistakes == 7:
+                print('''
+                                     _______
+                |¯¯¯¯¯¯¯¯¯¯|        |     |            
+                ¯¯¯¯¯¯¯/  /         |    /¯\           
+                      /  /          |    \_/       
+                     /  /           |     |           
+                    /  /            |     |          
+                   /  /             |    /        
+                  /  /              |   /     
+                 |__/               |    
+                                    |_____________
+
+                                    ''')
+
+            elif mistakes == 8:
+                print('''
+
+                 _____               _______                
+                /     \             |     |                     
+               /  /\   \            |    /¯\                   
+               \  \/   /            |    \_/                 
+                \_____/             |     |             
+                /     \             |     |                     
+               /  /\   \            |    / \               
+               \  \/   /            |   /   \                     
+                \_____/             |                                            
+                                    |_____________
+
+                                    ''')
+
+            elif mistakes == 9:
+                print('''               
+                                     _______
+                 _____              |     |      
+                /     \             |    /¯\        
+               /  /\   \            |    \_/          
+               \  \/   /            |    /|   
+                \___  /             |   / |  
+                   / /              |    / \  
+                  / /               |   /   \ 
+                 /_/                | 
+                                    |_____________     
+
+                                    ''')
+
+            elif mistakes == 10:
+                print('''
+
+                /¯¯¯¯¯|  /¯¯¯¯¯¯¯¯\  _______
+               /      |  |        | |     |       
+              /  /¯|  |  |  /¯¯\  | |    /¯\     
+             /  /  |  |  | |   |  | |    \_/
+            /__/   |  |  | |   |  | |    /|\ 
+                   |  |  | |   |  | |   / | \ 
+                   |  |  | |   |  | |    / \ 
+                   |  |  | \__/   | |   /   \   
+                   |  |  |        | |
+                   |__|  \_______/  |_____________
+
+                GAME OVER YOU DIDN'T GUESS WORD : ''' + word.upper() + ''' 
+
+                                    ''')
+                over = True
+                move = False
+
+            used.append(letter)
+
+            if over:
+                break
+
+            print('sorry ' + letter + ' letter is not in my guessed word :(')
+
+        if over or win:
+            break
+
+        print(w1 + ' ' + w2 + ' ' + w3 + ' ' + w4 + ' ' + w5 + ' ' + w6 + ' ' + w7 + ' ' + w8 + ' ' + w9)
+
+    if over:
+        print('''
+        
+        THAT WAS A GREAT GAME
+        BUT SOMETIMES LUCK IS NOT ON YOUR SIDE
+        
+        
+        ''')
+    elif win:
+        print('''
+        CONGRATS CONGRATS
+        ''')
+    exit()
+
+

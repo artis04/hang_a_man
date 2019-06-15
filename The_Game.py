@@ -1,5 +1,6 @@
 import collections
 import random
+import keyboard
 repeat_goal = False
 game_two = False
 
@@ -158,11 +159,10 @@ while repeat_goal:
             while repeat:
                 choice = choice.lower()
                 if choice == 'y':
-                    where = input('in which place is letter ' + letter + '? (you can use exit)')
 
-                    if where.lower() == 'exit':
-                        repeat = False
-                    elif int(where) == 1 and w1 == '_':
+                    where = input('in which place is letter ' + letter + '?')
+
+                    if int(where) == 1 and w1 == '_':
                         w1 = letter
                         place = 1
                     elif int(where) == 2 and w2 == '_':
@@ -205,7 +205,7 @@ while repeat_goal:
                         w14 = letter
                         place = w14
                     else:
-                        print('wrong location (you can type EXIT to exit this question')
+                        print('wrong location')
 
                     may_words1 = []
                     for a in may_words:
@@ -446,9 +446,15 @@ while repeat_goal:
         print('WoW you beat me.')
         print('what was your word?')
         new_word = input(':')
-        with open('words.txt', 'a') as words:
-            words.write('\n')
-            words.write(new_word)
+        with open(file, 'r') as f:
+            words1 = [line.strip() for line in f]
+        for i in words1:
+            if i == new_word:
+                print('this word already is in system')
+            else:
+                with open(file, 'a') as words:
+                    words.write('\n')
+                    words.write(new_word)
     elif lost:
         print("that was a great play, but AI couldn't guess that word")
     else:
@@ -737,6 +743,9 @@ while game_two:
         print('''
         CONGRATS CONGRATS
         ''')
+
+    NO = True
+    while NO:
+        if keyboard.is_pressed('enter'):
+            NO = False
     exit()
-
-

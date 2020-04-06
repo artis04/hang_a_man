@@ -6,8 +6,8 @@ game_two = False
 
 game = input('''
     Do you want to:
-1. A.I. guesses your guessed word
-2. you guess A.I. guessed word
+1. Computer guesses your guessed word
+2. you guess Computers guessed word
       ''')
 
 if game == '1':
@@ -396,7 +396,7 @@ while repeat_goal:
        |  |  |        | |
        |__|  \_______/  |_____________
   
-    GAME OVER THANKS FOR PLAYING A.I. WAS NOT SMART ENOUGH
+    GAME OVER THANKS FOR PLAYING COMPUTER WAS NOT SMART ENOUGH
                         
                         ''')
                         lost = True
@@ -421,6 +421,7 @@ while repeat_goal:
                           + ' ' + w10 + ' ' + w11 + ' ' + w12 + ' ' + w13 + ' ' + w14)
 
                     if len(may_words) == 1:
+                        print()
                         print('##############################')
                         print('##############################')
                         goal = input('Is your word ' + may_words[0] + ' ?')
@@ -456,7 +457,7 @@ while repeat_goal:
                     words.write('\n')
                     words.write(new_word)
     elif lost:
-        print("that was a great play, but AI couldn't guess that word")
+        print("that was a great play, but Computer couldn't guess that word")
     else:
         print('game has ended with error')
 
